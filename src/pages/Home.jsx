@@ -18,8 +18,8 @@ const Home = () => {
             variant="outlined"
             style={{ marginBottom: 25 }}
           />
+
           <TextField
-            id="outlined-basic"
             select
             label="Select Category"
             varient="outlined"
@@ -31,6 +31,7 @@ const Home = () => {
               </MenuItem>
             ))}
           </TextField>
+
           <TextField
             select
             label="Select Difficulty"

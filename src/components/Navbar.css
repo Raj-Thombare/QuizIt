@@ -25,7 +25,7 @@ header .logo:hover {
   text-decoration: none;
 }
 
-ul {
+nav ul {
   list-style: none;
   display: flex;
   flex-direction: row;
@@ -36,7 +36,7 @@ ul {
   font-size: 1.3rem;
 }
 
-ul li {
+nav ul li {
   padding: 0px 10px;
 }
 

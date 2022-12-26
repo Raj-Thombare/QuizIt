@@ -5,7 +5,7 @@ header {
   align-content: center;
   justify-content: space-between;
   align-items: center;
-  padding: 5px;
+  padding: 10px;
   margin-bottom: 2rem;
 }
 
@@ -13,6 +13,16 @@ header .logo {
   font-size: 2rem;
   font-weight: bold;
   padding: 5px;
+  color: white;
+  text-decoration: none;
+}
+
+header .logo:hover {
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 5px;
+  color: white;
+  text-decoration: none;
 }
 
 ul {
@@ -31,15 +41,21 @@ ul li {
 }
 
 ul li a {
-  padding: 10px;
+  padding: 0px 10px;
   color: white;
-  text-decoration: none;
 }
 
-.isActive {
-  border-bottom: 4px solid white;
-}
+@media (max-width: 700px) {
+  header {
+    flex-direction: column;
+  }
 
-a:hover {
-  border-bottom: 4px solid white;
+  header nav ul {
+    flex-wrap: nowrap;
+  }
+
+  header .logo {
+    font-size: 2.5rem;
+    margin-bottom: 1.3rem;
+  }
 }

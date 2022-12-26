@@ -1,6 +1,6 @@
 import Home from "./pages/Home";
-import Result from "./pages/Result";
-import Quiz from "./pages/Quiz";
+import Profile from "./pages/Profile";
+import Leaderboard from "./pages/Leaderboard";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
 
@@ -8,19 +8,20 @@ import "./App.css";
 
 function App() {
   return (
-    <div>
+    <>
       <div className="bgImage"></div>
       <div className="App">
         <div className="container">
           <Navbar />
           <Routes>
+            <Route path="/" element={<Home />} />
             <Route path="/home" element={<Home />} />
-            <Route path="/quiz" element={<Quiz />} />
-            <Route path="/result" element={<Result />} />
+            <Route path="/leaderboard" element={<Leaderboard />} />
+            <Route path="/profile" element={<Profile />} />
           </Routes>
         </div>
       </div>
-    </div>
+    </>
   );
 }
 

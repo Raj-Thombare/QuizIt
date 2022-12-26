@@ -1,6 +1,8 @@
-import Home from "./components/Home";
-import Result from "./components/Result";
-import Quiz from "./components/Quiz";
+import Home from "./pages/Home";
+import Result from "./pages/Result";
+import Quiz from "./pages/Quiz";
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
 
@@ -9,9 +11,14 @@ function App() {
     <div>
       <div className="bgImage"></div>
       <div className="App">
-        <Home />
-        <Result />
-        <Quiz />
+        <div className="container">
+          <Navbar />
+          <Routes>
+            <Route path="/home" element={<Home />} />
+            <Route path="/quiz" element={<Quiz />} />
+            <Route path="/result" element={<Result />} />
+          </Routes>
+        </div>
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import { Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
@@ -17,7 +17,7 @@ function App() {
         <div className="container">
           <Navbar />
           <Routes>
-            <Route path="/" element={<Home name={name} setName={setName} />} />
+            <Route path="/" element={<Navigate replace to="/home" />} />
             <Route
               path="/home"
               element={<Home name={name} setName={setName} />}

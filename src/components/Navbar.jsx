@@ -20,6 +20,7 @@ const Navbar = () => {
       fontSize: 11,
     },
   }));
+
   return (
     <header>
       <Link className="logo" to="/">

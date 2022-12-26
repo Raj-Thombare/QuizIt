@@ -11,7 +11,7 @@
   backdrop-filter: saturate(180%) blur(10px);
   backdrop-filter: blur(5px);
   width: 45%;
-  padding: 20px;
+  padding: 30px 20px;
   display: flex;
   flex-direction: column;
   align-items: center;

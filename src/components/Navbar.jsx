@@ -23,7 +23,7 @@ const Navbar = () => {
   return (
     <header>
       <Link className="logo" to="/">
-        CrikQuiz
+        CrikQuizZ
       </Link>
       <nav>
         <ul>

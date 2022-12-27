@@ -16,6 +16,7 @@ function App() {
   const [name, setName] = useState();
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
+  const [showProfile, setShowProfile] = useState(false);
 
   const fetchQuestions = async (category = "", difficulty = "") => {
     // const { data } = await axios.get(
@@ -38,7 +39,7 @@ function App() {
       <div className="bgImage"></div>
       <div className="App">
         <div className="container">
-          <Navbar />
+          <Navbar showProfile={showProfile} />
           <Routes>
             <Route path="/" element={<Navigate replace to="/home" />} />
             <Route
@@ -48,11 +49,14 @@ function App() {
                   name={name}
                   setName={setName}
                   fetchQuestions={fetchQuestions}
+                  showProfile={showProfile}
+                  setShowProfile={setShowProfile}
                 />
               }
             />
             <Route path="/leaderboard" element={<Leaderboard />} />
             <Route path="/profile" element={<Profile name={name} />} />
+
             <Route
               path="/quiz"
               element={

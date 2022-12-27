@@ -9,7 +9,7 @@ import { Tooltip, styled, tooltipClasses } from "@mui/material";
 
 import "./Navbar.css";
 
-const Navbar = () => {
+const Navbar = ({ showProfile }) => {
   const LightTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(({ theme }) => ({
@@ -42,13 +42,15 @@ const Navbar = () => {
               </Link>
             </LightTooltip>
           </li>
-          <li>
-            <LightTooltip title="Profile">
-              <Link to="/profile">
-                <Person fontSize="large" />
-              </Link>
-            </LightTooltip>
-          </li>
+          {showProfile && (
+            <li>
+              <LightTooltip title="Profile">
+                <Link to="/profile">
+                  <Person fontSize="large" />
+                </Link>
+              </LightTooltip>
+            </li>
+          )}
           <li>
             <LightTooltip title="Dark Mode">
               <Link>

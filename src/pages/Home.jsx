@@ -6,7 +6,7 @@ import Error from "../components/Error";
 
 import "./Home.css";
 
-const Home = ({ name, setName, fetchQuestions }) => {
+const Home = ({ name, setName, fetchQuestions, setShowProfile }) => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [error, setError] = useState(false);
@@ -20,6 +20,7 @@ const Home = ({ name, setName, fetchQuestions }) => {
       setError(false);
       fetchQuestions(category, difficulty);
       navigate("/quiz");
+      setShowProfile(true);
     }
   };
 

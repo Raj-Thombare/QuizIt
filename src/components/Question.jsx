@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-
+import { Button } from "@mui/material";
 import Error from "./Error";
 
 import "./Question.css";
@@ -34,14 +34,18 @@ const Question = ({
   };
 
   const nextQuestionHandler = () => {
-    if (!selected) {
+    if (currQues > 3) {
+      navigate("/result");
+    } else if (selected) {
+      setSelected();
+      setCurrQues(currQues + 1);
+    } else {
       setError("Please select an option!");
     }
-    setCurrQues(currQues + 1);
   };
 
   const quitHandler = () => {
-    navigate("/result");
+    navigate("/");
   };
 
   return (
@@ -69,8 +73,25 @@ const Question = ({
         </div>
       </div>
       <div className="controls">
-        <button onClick={quitHandler}>Quit</button>
-        <button onClick={nextQuestionHandler}>Next Question</button>
+        <Button
+          variant="contained"
+          color="error"
+          size="large"
+          style={{ width: 185 }}
+          onClick={quitHandler}
+          href="/"
+        >
+          Quit
+        </Button>
+        <Button
+          variant="contained"
+          color="primary"
+          size="large"
+          style={{ width: 185 }}
+          onClick={nextQuestionHandler}
+        >
+          Next Question
+        </Button>
       </div>
     </div>
   );

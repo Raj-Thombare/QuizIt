@@ -1,13 +1,15 @@
 import React from "react";
 import { Button } from "@mui/material";
 
+import "./Result.css";
+
 const Result = ({ score }) => {
   return (
-    <div>
+    <div className="result">
       <h2>Your Score: {score}</h2>
       <Button
         variant="contained"
-        color="secondary"
+        color="primary"
         size="large"
         style={{ alignSelf: "center", marginTop: 20 }}
         href="/"

@@ -23,7 +23,9 @@ const Question = ({
 
   const checkAnswerHandler = (option) => {
     setSelected(option);
-    if (selected === correct) setScore(score + 1);
+    if (option === correct) {
+      setScore(score + 1);
+    }
     setError(false);
   };
 

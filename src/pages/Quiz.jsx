@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Question from "../components/Question";
 import "./Quiz.css";
 
-const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
+const Quiz = ({ name, questions, score, setScore }) => {
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
 

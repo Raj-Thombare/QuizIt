@@ -1,0 +1,20 @@
+.footer {
+  text-align: "center";
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+}
+
+.heart {
+  margin: 0px 7px;
+}
+
+.footer a {
+  cursor: pointer;
+  text-decoration: none;
+  padding: 5px;
+  color: white;
+}

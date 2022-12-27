@@ -6,6 +6,7 @@ import Profile from "./pages/Profile";
 import Leaderboard from "./pages/Leaderboard";
 import Quiz from "./pages/Quiz";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import { Routes, Route } from "react-router-dom";
 
 import "./App.css";
@@ -64,6 +65,7 @@ function App() {
               }
             />
           </Routes>
+          <Footer />
         </div>
       </div>
     </>

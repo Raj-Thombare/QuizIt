@@ -24,7 +24,7 @@ const Navbar = ({ showProfile }) => {
   return (
     <header>
       <Link className="logo" to="/">
-        CrikQuizZ
+        QuizIt.
       </Link>
       <nav>
         <ul>

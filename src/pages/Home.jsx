@@ -28,7 +28,7 @@ const Home = ({ name, setName, fetchQuestions, setShowProfile }) => {
     <div className="content">
       <div className="settings">
         <h1 style={{ marginBottom: "1rem", color: "white" }}>
-          Welcome to CrikQuizZ
+          Welcome to QuizIt
         </h1>
         {error && <Error>Please fill all the fields!</Error>}
 

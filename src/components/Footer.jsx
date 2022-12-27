@@ -7,7 +7,9 @@ const Footer = () => {
     <div className="footer">
       Made with <Favorite fontSize="small" color="primary" className="heart" />{" "}
       by
-      <a href="https://therajthombare.netlify.app">Rakaa</a>
+      <a href="https://therajthombare.netlify.app" target="_blank">
+        Rakaa
+      </a>
     </div>
   );
 };

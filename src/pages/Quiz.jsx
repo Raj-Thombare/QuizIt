@@ -1,6 +1,6 @@
 import { CircularProgress } from "@mui/material";
 import { useState, useEffect } from "react";
-// import Question from "../../components/Question/Question";
+import Question from "../components/Question";
 import "./Quiz.css";
 
 const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
@@ -26,10 +26,23 @@ const Quiz = ({ name, questions, score, setScore, setQuestions }) => {
       <span className="subtitle">Welcome, {name}</span>
 
       {questions ? (
-        <div className="quizInfo">
-          <span>{questions[currQues].category}</span>
-          <span>Score: {score}</span>
-        </div>
+        <>
+          <div className="quizInfo">
+            <span>{questions[currQues].category}</span>
+            <span>Score: {score}</span>
+          </div>
+          <Question
+            question={questions}
+            setQuestions={setQuestions}
+            options={options}
+            setOptions={setOptions}
+            currQues={currQues}
+            setCurrQues={setCurrQues}
+            score={score}
+            setScore={setScore}
+            correct={questions[currQues]?.correct_answer}
+          />
+        </>
       ) : (
         <CircularProgress
           style={{ margin: 100 }}

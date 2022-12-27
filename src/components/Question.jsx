@@ -7,9 +7,7 @@ import "./Question.css";
 
 const Question = ({
   question,
-  setQuestions,
   options,
-  setOptions,
   currQues,
   setCurrQues,
   score,

@@ -1,12 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 
 import "./Result.css";
 
-const Result = ({ score }) => {
+const Result = ({ name, score }) => {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (!name) {
+      navigate("/");
+    }
+  }, [name, navigate]);
+
   return (
     <div className="result">
-      <h2>Your Score: {score}</h2>
+      <h2 className="title">Your Score: {score}</h2>
       <Button
         variant="contained"
         color="primary"

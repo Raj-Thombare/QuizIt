@@ -69,7 +69,10 @@ function App() {
                 />
               }
             />
-            <Route path="/result" element={<Result score={score} />} />
+            <Route
+              path="/result"
+              element={<Result name={name} score={score} />}
+            />
           </Routes>
           <Footer />
         </div>

@@ -10,7 +10,7 @@
   background: rgb(204 218 243 / 59%);
   backdrop-filter: saturate(180%) blur(10px);
   backdrop-filter: blur(5px);
-  width: 45%;
+  min-width: 45%;
   padding: 30px 20px;
   display: flex;
   flex-direction: column;
@@ -26,18 +26,16 @@
   padding: 8px;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 600px) {
   .content {
     flex-direction: column-reverse;
     align-items: center;
+    /* padding: 0rem; */
   }
   .banner {
     width: 85%;
     padding: 0;
     padding-top: 20px;
-  }
-  .settings {
-    width: 100%;
   }
 }
 

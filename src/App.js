@@ -11,14 +11,23 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 
 function App() {
-  const [name, setName] = useState(null);
-  const [questions, setQuestions] = useState("");
+  const [name, setName] = useState();
+  const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
 
-  const fetchQuestions = async (category, difficulty) => {
-    const { data } = await axios.get(
-      `https://the-trivia-api.com/api/questions?categories=${category}&limit=5&region=IN&difficulty=${difficulty}`
+  const fetchQuestions = async (category = "", difficulty = "") => {
+    // const { data } = await axios.get(
+    //   `https://the-trivia-api.com/api/questions?${
+    //     category && `categories=${category}`
+    //   }&limit=5&region=IN&${difficulty && `difficulty=${difficulty}`}`
+    // );
+
+    const res = await fetch(
+      `https://the-trivia-api.com/api/questions?${
+        category && `categories=${category}`
+      }&limit=5&region=IN&${difficulty && `difficulty=${difficulty}`}`
     );
+    const data = await res.json();
     setQuestions(data);
   };
 
@@ -44,7 +53,15 @@ function App() {
             <Route path="/profile" element={<Profile name={name} />} />
             <Route
               path="/quiz"
-              element={<Quiz name={name} questions={questions} score={score} />}
+              element={
+                <Quiz
+                  name={name}
+                  questions={questions}
+                  setQuestions={setQuestions}
+                  score={score}
+                  setScore={setScore}
+                />
+              }
             />
           </Routes>
         </div>

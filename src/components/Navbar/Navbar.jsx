@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import ModeNight from "@mui/icons-material/ModeNight";
-import WbSunny from "@mui/icons-material/WbSunny";
+// import WbSunny from "@mui/icons-material/WbSunny";
 import Leaderboard from "@mui/icons-material/Leaderboard";
 import Person from "@mui/icons-material/Person";
 import Home from "@mui/icons-material/Home";

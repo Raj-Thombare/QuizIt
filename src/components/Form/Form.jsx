@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, MenuItem, Button } from "@mui/material";
 import Error from "../Error/Error";
 import categories from "../../adapters/category";
+import DataContext from "../../context/data-context";
 
-const Form = ({ name, setName, fetchQuestions, setShowProfile }) => {
+import classes from "./Form.module.css";
+
+const Form = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
+
+  const { fetchQuestions, name, setName, setShowProfile } =
+    useContext(DataContext);
 
   const handleSubmit = () => {
     if (!name || !category || !difficulty) {
@@ -17,20 +23,19 @@ const Form = ({ name, setName, fetchQuestions, setShowProfile }) => {
     } else {
       setError(false);
       fetchQuestions(category, difficulty);
-      navigate("/quiz");
-      setShowProfile(true);
     }
+    navigate("/quiz");
+    setShowProfile(true);
   };
 
   return (
-    <div className="settings">
+    <div className={classes.settings}>
       <h1 style={{ marginBottom: "1rem", color: "white" }}>
         Welcome to QuizIt
       </h1>
       {error && <Error>Please fill all the fields!</Error>}
-      <div className="settings__select">
+      <div className={classes.settings__select}>
         <TextField
-          id="outlined-basic"
           label="Enter your name"
           variant="outlined"
           style={{ marginBottom: 25 }}

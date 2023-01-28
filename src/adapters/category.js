@@ -1,4 +1,4 @@
-const Categories = [
+const categories = [
   {
     category: "Arts & Literature",
     value: "arts_and_literature",
@@ -14,4 +14,4 @@ const Categories = [
   { category: "Society & Culture", value: "society_&_culture" },
 ];
 
-export default Categories;
+export default categories;

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, MenuItem, Button } from "@mui/material";
-import Categories from "../Data/Catergories";
+import Categories from "../data/Catergories";
 import Error from "../components/Error";
 
 import "./Home.css";

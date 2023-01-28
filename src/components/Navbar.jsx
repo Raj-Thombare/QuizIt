@@ -53,10 +53,8 @@ const Navbar = ({ showProfile }) => {
           )}
           <li>
             <LightTooltip title="Dark Mode">
-              <Link>
-                <ModeNight fontSize="large" />
-                {/* <WbSunny fontSize="large" /> */}
-              </Link>
+              <ModeNight fontSize="large" />
+              {/* <WbSunny fontSize="large" /> */}
             </LightTooltip>
           </li>
         </ul>

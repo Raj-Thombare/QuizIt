@@ -7,7 +7,11 @@ const Footer = () => {
     <div className="footer">
       Made with <Favorite fontSize="small" color="primary" className="heart" />{" "}
       by
-      <a href="https://therajthombare.netlify.app" target="_blank">
+      <a
+        href="https://therajthombare.netlify.app"
+        target="_blank"
+        rel="noreferrer"
+      >
         Rakaa
       </a>
     </div>

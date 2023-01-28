@@ -15,7 +15,6 @@ export const DataContextProvider = ({ children }) => {
         difficulty && `difficulty=${difficulty}`
       }`
     );
-    console.log(apiData.data);
     setQuestions(apiData);
   };
 

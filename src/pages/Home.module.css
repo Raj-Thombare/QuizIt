@@ -1,7 +1,13 @@
+.content {
+  display: flex;
+  justify-content: space-around;
+  padding: 2rem;
+  border-radius: 30px;
+}
+
 .settings {
   background: rgb(204 218 243 / 59%);
   backdrop-filter: saturate(180%) blur(10px);
-  /* backdrop-filter: blur(5px); */
   min-width: 45%;
   padding: 30px 20px;
   display: flex;
@@ -22,7 +28,6 @@
   .content {
     flex-direction: column-reverse;
     align-items: center;
-    /* padding: 0rem; */
   }
   .banner {
     width: 85%;

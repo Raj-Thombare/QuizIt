@@ -1,15 +1,20 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
-import ModeNight from "@mui/icons-material/ModeNight";
-// import WbSunny from "@mui/icons-material/WbSunny";
-import Leaderboard from "@mui/icons-material/Leaderboard";
-import Person from "@mui/icons-material/Person";
-import Home from "@mui/icons-material/Home";
+import {
+  ModeNight,
+  Leaderboard,
+  Person,
+  Home,
+  WbSunny,
+} from "@mui/icons-material";
 import { Tooltip, styled, tooltipClasses } from "@mui/material";
+import DataContext from "../../context/data-context";
 
-import "./Navbar.css";
+import classes from "./Navbar.module.css";
 
-const Navbar = ({ showProfile }) => {
+const Navbar = () => {
+  const { showProfile } = useContext(DataContext);
+
   const LightTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
   ))(({ theme }) => ({
@@ -23,7 +28,7 @@ const Navbar = ({ showProfile }) => {
 
   return (
     <header>
-      <Link className="logo" to="/">
+      <Link className={classes.logo} to="/">
         QuizIt.
       </Link>
       <nav>

@@ -10,12 +10,14 @@ export const DataContextProvider = ({ children }) => {
   const [showProfile, setShowProfile] = useState(false);
 
   const fetchQuestions = async (category = "", difficulty = "") => {
-    const apiData = await axios.get(
+    const questionsData = await axios.get(
       `?${category && `categories=${category}`}&limit=10&region=IN&${
         difficulty && `difficulty=${difficulty}`
       }`
     );
-    setQuestions(apiData);
+    setQuestions(questionsData);
+    console.log(questions);
+
   };
 
   const value = {

@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { CircularProgress } from "@mui/material";
 import { DataContextProvider } from "./context/data-context";
 
-const Home = React.lazy(() => import("./pages/Home"));
+const Home = React.lazy(() => import("./pages/Home/Home"));
 const Profile = React.lazy(() => import("./pages/Profile"));
 const Leaderboard = React.lazy(() => import("./pages/Leaderboard"));
 const Quiz = React.lazy(() => import("./pages/Quiz"));

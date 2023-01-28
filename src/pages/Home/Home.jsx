@@ -1,9 +1,9 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, MenuItem, Button } from "@mui/material";
-import Error from "../components/Error/Error";
-import Categories from "../adapters/category";
-import DataContext from "../context/data-context";
+import Error from "../../components/Error/Error";
+import Categories from "../../adapters/category";
+import DataContext from "../../context/data-context";
 
 import classes from "./Home.module.css";
 

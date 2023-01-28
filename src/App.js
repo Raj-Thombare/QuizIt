@@ -6,7 +6,7 @@ import { DataContextProvider } from "./context/data-context";
 const Home = React.lazy(() => import("./pages/Home/Home"));
 const Profile = React.lazy(() => import("./pages/Profile"));
 const Leaderboard = React.lazy(() => import("./pages/Leaderboard"));
-const Quiz = React.lazy(() => import("./pages/Quiz"));
+const Quiz = React.lazy(() => import("./pages/Quiz/Quiz"));
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
 const Footer = React.lazy(() => import("./components/Footer/Footer"));
 const Result = React.lazy(() => import("./pages/Result"));

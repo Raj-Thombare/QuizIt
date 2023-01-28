@@ -1,11 +1,15 @@
+import { useState, useEffect, useContext } from "react";
 import { CircularProgress } from "@mui/material";
-import { useState, useEffect } from "react";
-import Question from "../components/Question/Question";
-import "./Quiz.css";
+import Question from "../../components/Question/Question";
+import DataContext from "../../context/data-context";
+import classes from "./Quiz.module.css";
 
-const Quiz = ({ name, questions, score, setScore }) => {
+const Quiz = () => {
   const [options, setOptions] = useState();
   const [currQues, setCurrQues] = useState(0);
+
+  const { name, questions, score, setScore } = useContext(DataContext);
+  console.log(questions);
 
   useEffect(() => {
     setOptions(
@@ -22,12 +26,12 @@ const Quiz = ({ name, questions, score, setScore }) => {
   };
 
   return (
-    <div className="quiz">
-      <span className="subtitle">Welcome, {name}</span>
+    <div className={classes.quiz}>
+      <span className={classes.subtitle}>Welcome, {name}</span>
 
       {questions ? (
         <>
-          <div className="quizInfo">
+          <div className={classes.quizInfo}>
             <span>{questions[currQues].category}</span>
             <span>Score: {score}</span>
           </div>

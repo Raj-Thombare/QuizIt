@@ -39,13 +39,14 @@ const Home = () => {
           <TextField
             label="Enter your name"
             variant="outlined"
+            value="Rakaa"
             style={{ marginBottom: 25 }}
             onChange={(e) => setName(e.target.value)}
           />
           <TextField
             select
             label="Select Category"
-            value={category}
+            value="music"
             varient="outlined"
             style={{ marginBottom: 30 }}
             onChange={(e) => setCategory(e.target.value)}
@@ -59,7 +60,7 @@ const Home = () => {
           <TextField
             select
             label="Select Difficulty"
-            value={difficulty}
+            value="easy"
             varient="outlined"
             style={{ marginBottom: 30 }}
             onChange={(e) => setDifficulty(e.target.value)}

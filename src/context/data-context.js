@@ -16,8 +16,6 @@ export const DataContextProvider = ({ children }) => {
       }`
     );
     setQuestions(questionsData);
-    console.log(questions);
-
   };
 
   const value = {

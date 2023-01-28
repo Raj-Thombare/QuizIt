@@ -30,9 +30,7 @@ const Form = () => {
 
   return (
     <div className={classes.settings}>
-      <h1 style={{ marginBottom: "1rem", color: "white" }}>
-        Welcome to QuizIt
-      </h1>
+      <h1 style={{ padding: "5px 20px", color: "white" }}>Welcome to QuizIt</h1>
       {error && <Error>Please fill all the fields!</Error>}
       <div className={classes.settings__select}>
         <TextField

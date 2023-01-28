@@ -13,18 +13,13 @@ const Result = React.lazy(() => import("./pages/Result"));
 
 function App() {
   return (
-    <Suspense
-      fallback={
-        <CircularProgress
-          style={{ margin: 100 }}
-          color="inherit"
-          size={50}
-          thickness={2}
-        />
-      }
-    >
-      <DataContextProvider>
-        <div className="container">
+    <DataContextProvider>
+      <div className="container">
+        <Suspense
+          fallback={
+            <CircularProgress style={{ margin: 250 }} size={50} thickness={2} />
+          }
+        >
           <Navbar />
           <Routes>
             <Route path="/" element={<Home />} />
@@ -34,9 +29,9 @@ function App() {
             <Route path="/result" element={<Result />} />
           </Routes>
           <Footer />
-        </div>
-      </DataContextProvider>
-    </Suspense>
+        </Suspense>
+      </div>
+    </DataContextProvider>
   );
 }
 

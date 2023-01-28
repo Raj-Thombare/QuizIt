@@ -1,18 +1,15 @@
-import Favorite from "@mui/icons-material/Favorite";
-
-import "./Footer.css";
+import classes from "./Footer.module.css";
 
 const Footer = () => {
   return (
-    <div className="footer">
-      Made with <Favorite fontSize="small" color="primary" className="heart" />{" "}
+    <div className={classes.footer}>
       by
       <a
         href="https://therajthombare.netlify.app"
         target="_blank"
         rel="noreferrer"
       >
-        Rakaa
+        Raj Thombare
       </a>
     </div>
   );

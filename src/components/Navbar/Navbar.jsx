@@ -27,28 +27,44 @@ const Navbar = () => {
       </Link>
       <nav>
         <ul>
-          <li>
-            <LightTooltip title="Home">
-              <Link to="/">
-                <Home fontSize="large" />
-              </Link>
-            </LightTooltip>
-          </li>
-          <li>
-            <LightTooltip title="Leaderboard">
-              <Link to="/leaderboard">
-                <Leaderboard fontSize="large" />
-              </Link>
-            </LightTooltip>
-          </li>
-          {showProfile && (
-            <li>
-              <LightTooltip title="Profile">
-                <Link to="/profile">
-                  <Person fontSize="large" />
+          {!showProfile && (
+            <>
+              <li>
+                <Link to="/" className={classes["nav-button"]}>
+                  Login
                 </Link>
-              </LightTooltip>
-            </li>
+              </li>
+              <li>
+                <Link to="/" className={classes["nav-button"]}>
+                  SignUp
+                </Link>
+              </li>
+            </>
+          )}
+          {showProfile && (
+            <>
+              <li>
+                <LightTooltip title="Home">
+                  <Link to="/">
+                    <Home fontSize="large" />
+                  </Link>
+                </LightTooltip>
+              </li>
+              <li>
+                <LightTooltip title="Leaderboard">
+                  <Link to="/leaderboard">
+                    <Leaderboard fontSize="large" />
+                  </Link>
+                </LightTooltip>
+              </li>
+              <li>
+                <LightTooltip title="Profile">
+                  <Link to="/profile">
+                    <Person fontSize="large" />
+                  </Link>
+                </LightTooltip>
+              </li>
+            </>
           )}
         </ul>
       </nav>

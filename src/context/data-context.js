@@ -1,7 +1,7 @@
 import { useState, createContext } from "react";
 import axios from "../adapters/Axios";
 
-const DataContext = createContext(null);
+const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
   const [name, setName] = useState();

@@ -36,6 +36,12 @@ nav ul {
   font-size: 1.3rem;
 }
 
+.nav-button {
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+}
+
 nav ul li {
   padding: 0px 10px;
 }

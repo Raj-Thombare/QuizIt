@@ -6,8 +6,8 @@ import MainWrapper from "./components/UI/MainWrapper";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
 
 const Home = React.lazy(() => import("./pages/Home/Home"));
-const Profile = React.lazy(() => import("./pages/Profile"));
-const Leaderboard = React.lazy(() => import("./pages/Leaderboard"));
+const Profile = React.lazy(() => import("./pages/Profile/Profile"));
+const Leaderboard = React.lazy(() => import("./pages/Leaderboard/Leaderboard"));
 const Quiz = React.lazy(() => import("./pages/Quiz/Quiz"));
 const Result = React.lazy(() => import("./pages/Result/Result"));
 

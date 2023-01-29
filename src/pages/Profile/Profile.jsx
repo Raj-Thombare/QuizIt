@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import DataContext from "../context/data-context";
+import DataContext from "../../context/data-context";
 
 const Profile = () => {
   const { name } = useContext(DataContext);

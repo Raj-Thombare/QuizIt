@@ -1,7 +1,6 @@
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, MenuItem, Button } from "@mui/material";
-import MainWrapper from "../../components/UI/MainWrapper";
 import Navbar from "../../components/Navbar/Navbar";
 import Error from "../../components/Error/Error";
 import Categories from "../../adapters/category";
@@ -32,7 +31,7 @@ const Home = () => {
   };
 
   return (
-    <MainWrapper>
+    <>
       <Navbar />
       <div className={classes.content}>
         <div className={classes.settings}>
@@ -85,7 +84,7 @@ const Home = () => {
           </div>
         </div>
       </div>
-    </MainWrapper>
+    </>
   );
 };
 

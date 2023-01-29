@@ -28,6 +28,7 @@
   .content {
     flex-direction: column-reverse;
     align-items: center;
+    padding: 0px;
   }
   .banner {
     width: 85%;

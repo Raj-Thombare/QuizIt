@@ -13,33 +13,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-body {
-  min-height: 100vh;
-  background-image: url("https://wallpapercave.com/wp/wp5581104.jpg");
-  /* background-image: url("https://img.freepik.com/free-vector/comic-style-background_23-2148836600.jpg?w=2000"); */
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
-}
-
-@media (max-width: 860px) {
-  .container {
-    padding: 0 4rem;
-  }
-}
-
-@media (max-width: 700px) {
-  .container {
-    padding: 0 1rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .container {
-    padding: 0 0.5rem;
-  }
-}
-
 /* Hide Scrollbar */
 
 .html {

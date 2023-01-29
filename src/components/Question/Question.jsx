@@ -1,40 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import Error from "../Error/Error";
+import DataContext from "../../context/data-context";
 
-import "./Question.css";
+import classes from "./Question.module.css";
 
-const Question = ({
-  question,
-  options,
-  currQues,
-  setCurrQues,
-  score,
-  setScore,
-  correct,
-}) => {
+const Question = ({ options, currQues, setCurrQues, correct }) => {
   const [selected, setSelected] = useState();
   const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
+  const { incrementScore, questions } = useContext(DataContext);
+
   const checkAnswerHandler = (option) => {
     setSelected(option);
     if (option === correct) {
-      setScore(score + 1);
+      incrementScore();
     }
     setError(false);
   };
 
   const selectHandler = (option) => {
-    if (selected === option && selected === correct) return "correct";
-    else if (selected === option && selected !== correct) return "wrong";
-    else if (option === correct) return "correct";
+    if (selected === option && selected === correct)
+      return `${classes.correct}`;
+    else if (selected === option && selected !== correct)
+      return `${classes.wrong}`;
+    else if (option === correct) return `${classes.correct}`;
   };
 
   const nextQuestionHandler = () => {
-    if (currQues > 3) {
+    if (currQues > 8) {
       navigate("/result");
     } else if (selected) {
       setSelected();
@@ -49,17 +46,19 @@ const Question = ({
   };
 
   return (
-    <div className="question">
-      <h1>Question {currQues + 1} :</h1>
-      <div className="singleQuestion">
-        <h2>{question[currQues].question}</h2>
-        <div className="options">
+    <div className={classes.question}>
+      <div className={classes.singleQuestion}>
+        <h1 style={{ fontSize: "24px" }}>
+          {`Q${currQues + 1}.
+          ${questions[currQues]?.question}`}
+        </h1>
+        <div className={classes.options}>
           {error && <Error>{error}</Error>}
           {options &&
             options.map((option) => {
               return (
                 <button
-                  className={`singleOption ${
+                  className={`${classes.singleOption} ${
                     selected && selectHandler(option)
                   }`}
                   onClick={() => checkAnswerHandler(option)}
@@ -72,7 +71,7 @@ const Question = ({
             })}
         </div>
       </div>
-      <div className="controls">
+      <div className={classes.controls}>
         <Button
           variant="contained"
           color="error"
@@ -90,7 +89,7 @@ const Question = ({
           style={{ width: 185 }}
           onClick={nextQuestionHandler}
         >
-          Next Question
+          Next
         </Button>
       </div>
     </div>

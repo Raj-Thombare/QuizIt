@@ -8,7 +8,6 @@ const Profile = React.lazy(() => import("./pages/Profile"));
 const Leaderboard = React.lazy(() => import("./pages/Leaderboard"));
 const Quiz = React.lazy(() => import("./pages/Quiz/Quiz"));
 const Navbar = React.lazy(() => import("./components/Navbar/Navbar"));
-const Footer = React.lazy(() => import("./components/Footer/Footer"));
 const Result = React.lazy(() => import("./pages/Result"));
 
 function App() {
@@ -28,7 +27,6 @@ function App() {
             <Route path="/quiz" element={<Quiz />} />
             <Route path="/result" element={<Result />} />
           </Routes>
-          <Footer />
         </Suspense>
       </div>
     </DataContextProvider>

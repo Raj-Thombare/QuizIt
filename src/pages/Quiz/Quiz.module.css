@@ -8,11 +8,10 @@
 .subtitle {
   margin-bottom: 20px;
   border-radius: 20px;
-  font-size: 20px;
-  padding: 20px 30px;
+  font-size: 18px;
+  padding: 10px 20px;
   background: rgb(204 218 243 / 59%);
   backdrop-filter: saturate(180%) blur(10px);
-  /* backdrop-filter: blur(5px); */
 }
 
 .quizInfo {
@@ -21,4 +20,13 @@
   justify-content: space-between;
   text-transform: uppercase;
   margin: 10px;
+}
+
+.highlight {
+  margin-bottom: 20px;
+  border-radius: 20px;
+  font-size: 14px;
+  padding: 10px 20px;
+  background: rgb(204 218 243 / 59%);
+  backdrop-filter: saturate(180%) blur(10px);
 }

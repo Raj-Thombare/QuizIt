@@ -1,12 +1,6 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import {
-  ModeNight,
-  Leaderboard,
-  Person,
-  Home,
-  WbSunny,
-} from "@mui/icons-material";
+import { Leaderboard, Person, Home } from "@mui/icons-material";
 import { Tooltip, styled, tooltipClasses } from "@mui/material";
 import DataContext from "../../context/data-context";
 
@@ -35,7 +29,7 @@ const Navbar = () => {
         <ul>
           <li>
             <LightTooltip title="Home">
-              <Link to="/home">
+              <Link to="/">
                 <Home fontSize="large" />
               </Link>
             </LightTooltip>
@@ -56,12 +50,6 @@ const Navbar = () => {
               </LightTooltip>
             </li>
           )}
-          <li>
-            <LightTooltip title="Dark Mode">
-              <ModeNight fontSize="large" />
-              {/* <WbSunny fontSize="large" /> */}
-            </LightTooltip>
-          </li>
         </ul>
       </nav>
     </header>

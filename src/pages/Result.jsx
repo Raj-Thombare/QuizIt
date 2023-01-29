@@ -1,11 +1,14 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
+import DataContext from "../context/data-context";
 
 import "./Result.css";
 
-const Result = ({ name, score }) => {
+const Result = () => {
   const navigate = useNavigate();
+
+  const { name, score } = useContext(DataContext);
 
   useEffect(() => {
     if (!name) {

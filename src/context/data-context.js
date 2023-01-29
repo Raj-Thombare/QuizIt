@@ -6,28 +6,41 @@ const DataContext = createContext(null);
 export const DataContextProvider = ({ children }) => {
   const [name, setName] = useState();
   const [questions, setQuestions] = useState();
-  const [score, setScore] = useState();
+  const [score, setScore] = useState(0);
   const [showProfile, setShowProfile] = useState(false);
 
   const fetchQuestions = async (category = "", difficulty = "") => {
-    const questionsData = await axios.get(
-      `?${category && `categories=${category}`}&limit=10&region=IN&${
-        difficulty && `difficulty=${difficulty}`
-      }`
-    );
-    setQuestions(questionsData);
+    try {
+      const questionsData = await axios.get(
+        `?${category && `categories=${category}`}&limit=10&region=IN&${
+          difficulty && `difficulty=${difficulty}`
+        }`
+      );
+      setQuestions(questionsData.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  const incrementScore = () => {
+    setScore(score + 1);
+    console.log(score);
+  };
+
+  const resetScore = () => {
+    setScore(0);
   };
 
   const value = {
     name,
     setName,
     questions,
-    setQuestions,
     score,
-    setScore,
     showProfile,
     setShowProfile,
     fetchQuestions,
+    incrementScore,
+    resetScore,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

@@ -5,11 +5,10 @@ import DataContext from "../../context/data-context";
 import classes from "./Quiz.module.css";
 
 const Quiz = () => {
-  const [options, setOptions] = useState();
+  const [options, setOptions] = useState([]);
   const [currQues, setCurrQues] = useState(0);
 
-  const { name, questions, score, setScore } = useContext(DataContext);
-  console.log(questions);
+  const { name, questions, score } = useContext(DataContext);
 
   useEffect(() => {
     setOptions(
@@ -32,16 +31,15 @@ const Quiz = () => {
       {questions ? (
         <>
           <div className={classes.quizInfo}>
-            <span>{questions[currQues].category}</span>
-            <span>Score: {score}</span>
+            <span className={classes.highlight}>
+              {questions[currQues]?.category}
+            </span>
+            <span className={classes.highlight}>Score: {score}</span>
           </div>
           <Question
-            question={questions}
             options={options}
             currQues={currQues}
             setCurrQues={setCurrQues}
-            score={score}
-            setScore={setScore}
             correct={questions[currQues]?.correctAnswer}
           />
         </>

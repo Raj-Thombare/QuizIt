@@ -14,7 +14,7 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const { fetchQuestions, name, setName, setShowProfile } =
+  const { fetchQuestions, name, setName, setShowProfile, resetScore } =
     useContext(DataContext);
 
   const handleSubmit = () => {
@@ -23,9 +23,10 @@ const Home = () => {
     } else {
       setError(false);
       fetchQuestions(category, difficulty);
+      navigate("/quiz");
+      setShowProfile(true);
+      resetScore();
     }
-    navigate("/quiz");
-    setShowProfile(true);
   };
 
   return (
@@ -39,14 +40,13 @@ const Home = () => {
           <TextField
             label="Enter your name"
             variant="outlined"
-            value="Rakaa"
             style={{ marginBottom: 25 }}
             onChange={(e) => setName(e.target.value)}
           />
           <TextField
             select
             label="Select Category"
-            value="music"
+            value={category}
             varient="outlined"
             style={{ marginBottom: 30 }}
             onChange={(e) => setCategory(e.target.value)}
@@ -60,7 +60,7 @@ const Home = () => {
           <TextField
             select
             label="Select Difficulty"
-            value="easy"
+            value={difficulty}
             varient="outlined"
             style={{ marginBottom: 30 }}
             onChange={(e) => setDifficulty(e.target.value)}

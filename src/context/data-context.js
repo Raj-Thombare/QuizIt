@@ -24,7 +24,6 @@ export const DataContextProvider = ({ children }) => {
 
   const incrementScore = () => {
     setScore(score + 1);
-    console.log(score);
   };
 
   const resetScore = () => {

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
 import { useAuth } from "../../context/auth-context";
 import Navbar from "../../components/Navbar/Navbar";
@@ -14,17 +14,18 @@ const Signup = () => {
 
   const navigate = useNavigate();
 
-  const { signupUserHandler } = useAuth();
+  const { username, setUsername, signupUserHandler } = useAuth();
 
   const submitHandler = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await signupUserHandler(email, password);
-      navigate("/");
+      navigate("/profile");
     } catch (error) {
       setError(error.message);
     }
+    setUsername("");
     setEmail("");
     setPassword("");
   };
@@ -34,9 +35,16 @@ const Signup = () => {
       <Navbar />
       <div className={classes.content}>
         <form className={classes.form} onSubmit={submitHandler}>
-          <h1>Sign Up</h1>
+          <h1>Create Account</h1>
           {error && <Error>{error}</Error>}
           <div className={classes.textFields}>
+            <TextField
+              label="Username"
+              variant="outlined"
+              value={username}
+              style={{ marginBottom: 25 }}
+              onChange={(e) => setUsername(e.target.value)}
+            />
             <TextField
               label="Enter your email"
               variant="outlined"
@@ -54,6 +62,9 @@ const Signup = () => {
             <Button variant="contained" color="primary" type="submit">
               Sign Up
             </Button>
+            <p>
+              Already a user? <Link to="/login">Login</Link>
+            </p>
           </div>
         </form>
       </div>

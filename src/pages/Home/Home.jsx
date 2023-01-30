@@ -41,9 +41,7 @@ const Home = () => {
       <Navbar />
       <div className={classes.content}>
         <div className={classes.settings}>
-          <h1 style={{ padding: "5px 20px", color: "white" }}>
-            Welcome to QuizIt
-          </h1>
+          <h1>Welcome to QuizIt</h1>
           {error && <Error>Please fill all the fields!</Error>}
           <div className={classes.settings__select}>
             <TextField

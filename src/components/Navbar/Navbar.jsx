@@ -29,12 +29,12 @@ const Navbar = () => {
           {!showProfile && (
             <>
               <li>
-                <Link to="/" className={classes["nav-button"]}>
+                <Link to="/login" className={classes["nav-button"]}>
                   Login
                 </Link>
               </li>
               <li>
-                <Link to="/" className={classes["nav-button"]}>
+                <Link to="/signup" className={classes["nav-button"]}>
                   SignUp
                 </Link>
               </li>

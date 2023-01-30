@@ -12,6 +12,8 @@ const Leaderboard = React.lazy(() => import("./pages/Leaderboard/Leaderboard"));
 const Quiz = React.lazy(() => import("./pages/Quiz/Quiz"));
 const Result = React.lazy(() => import("./pages/Result/Result"));
 const NotFound = React.lazy(() => import("./pages/404/NotFound"));
+const Login = React.lazy(() => import("./pages/Auth/Login"));
+const Signup = React.lazy(() => import("./pages/Auth/Signup"));
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
             <AuthContextProvider>
               <Routes>
                 <Route path="/" element={<Home />} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
                 <Route path="/profile" element={<Profile />} />
                 <Route path="/quiz" element={<Quiz />} />

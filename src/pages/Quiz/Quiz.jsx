@@ -8,7 +8,7 @@ const Quiz = () => {
   const [options, setOptions] = useState([]);
   const [currQues, setCurrQues] = useState(0);
 
-  const { name, questions, score } = useContext(DataContext);
+  const { name, questions, score, error } = useContext(DataContext);
 
   useEffect(() => {
     setOptions(
@@ -24,35 +24,42 @@ const Quiz = () => {
     return options.sort(() => Math.random() - 0.5);
   };
 
-  return (
-    <div className={classes.quiz}>
-      <span className={classes.subtitle}>Welcome, {name}</span>
+  let content;
 
-      {questions ? (
-        <>
-          <div className={classes.quizInfo}>
-            <span className={classes.highlight}>
-              {questions[currQues]?.category}
-            </span>
-            <span className={classes.highlight}>Score: {score}</span>
-          </div>
-          <Question
-            options={options}
-            currQues={currQues}
-            setCurrQues={setCurrQues}
-            correct={questions[currQues]?.correctAnswer}
+  if (error) {
+    content = <p>{error}</p>;
+  } else {
+    content = (
+      <>
+        <span className={classes.subtitle}>Welcome, {name}</span>;
+        {questions ? (
+          <>
+            <div className={classes.quizInfo}>
+              <span className={classes.highlight}>
+                {questions[currQues]?.category}
+              </span>
+              <span className={classes.highlight}>Score: {score}</span>
+            </div>
+            <Question
+              options={options}
+              currQues={currQues}
+              setCurrQues={setCurrQues}
+              correct={questions[currQues]?.correctAnswer}
+            />
+          </>
+        ) : (
+          <CircularProgress
+            style={{ margin: 100 }}
+            color="inherit"
+            size={50}
+            thickness={1}
           />
-        </>
-      ) : (
-        <CircularProgress
-          style={{ margin: 100 }}
-          color="inherit"
-          size={50}
-          thickness={1}
-        />
-      )}
-    </div>
-  );
+        )}
+      </>
+    );
+  }
+
+  return <div className={classes.quiz}>{content}</div>;
 };
 
 export default Quiz;

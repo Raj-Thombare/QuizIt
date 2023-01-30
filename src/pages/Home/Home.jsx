@@ -11,12 +11,18 @@ import classes from "./Home.module.css";
 const Home = () => {
   const [category, setCategory] = useState("");
   const [difficulty, setDifficulty] = useState("");
-  const [error, setError] = useState(false);
 
   const navigate = useNavigate();
 
-  const { fetchQuestions, name, setName, setShowProfile, resetScore } =
-    useContext(DataContext);
+  const {
+    fetchQuestions,
+    name,
+    setName,
+    setShowProfile,
+    resetScore,
+    error,
+    setError,
+  } = useContext(DataContext);
 
   const handleSubmit = () => {
     if (!name || !category || !difficulty) {

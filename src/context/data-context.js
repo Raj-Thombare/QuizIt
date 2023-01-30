@@ -8,6 +8,7 @@ export const DataContextProvider = ({ children }) => {
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
   const [showProfile, setShowProfile] = useState(false);
+  const [error, setError] = useState(false);
 
   const fetchQuestions = async (category = "", difficulty = "") => {
     try {
@@ -18,7 +19,8 @@ export const DataContextProvider = ({ children }) => {
       );
       setQuestions(questionsData.data);
     } catch (error) {
-      console.log(error.message);
+      console.log(error);
+      setError(error.message);
     }
   };
 
@@ -40,6 +42,8 @@ export const DataContextProvider = ({ children }) => {
     fetchQuestions,
     incrementScore,
     resetScore,
+    error,
+    setError,
   };
 
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;

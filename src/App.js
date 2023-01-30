@@ -10,6 +10,7 @@ const Profile = React.lazy(() => import("./pages/Profile/Profile"));
 const Leaderboard = React.lazy(() => import("./pages/Leaderboard/Leaderboard"));
 const Quiz = React.lazy(() => import("./pages/Quiz/Quiz"));
 const Result = React.lazy(() => import("./pages/Result/Result"));
+const NotFound = React.lazy(() => import("./pages/404/NotFound"));
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/quiz" element={<Quiz />} />
               <Route path="/result" element={<Result />} />
+              <Route path="*" element={<NotFound />} />
             </Routes>
           </DataContextProvider>
         </Suspense>

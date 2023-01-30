@@ -8,7 +8,7 @@ const Quiz = () => {
   const [options, setOptions] = useState([]);
   const [currQues, setCurrQues] = useState(0);
 
-  const { name, questions, score, error } = useData();
+  const { name, questions, error } = useData();
 
   useEffect(() => {
     setOptions(
@@ -33,20 +33,12 @@ const Quiz = () => {
       <>
         <span className={classes.subtitle}>Welcome, {name}</span>
         {questions ? (
-          <>
-            <div className={classes.quizInfo}>
-              <span className={classes.highlight}>
-                {questions[currQues]?.category}
-              </span>
-              <span className={classes.highlight}>Score: {score}</span>
-            </div>
-            <Question
-              options={options}
-              currQues={currQues}
-              setCurrQues={setCurrQues}
-              correct={questions[currQues]?.correctAnswer}
-            />
-          </>
+          <Question
+            options={options}
+            currQues={currQues}
+            setCurrQues={setCurrQues}
+            correct={questions[currQues]?.correctAnswer}
+          />
         ) : (
           <CircularProgress
             style={{ margin: 100 }}

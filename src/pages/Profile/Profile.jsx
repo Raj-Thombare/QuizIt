@@ -22,12 +22,16 @@ const Profile = () => {
   return (
     <>
       <Navbar />
-      <div>
-        <h1>Account</h1>
-        <p>User Email: {user && user.email}</p>
-        <Button variant="contained" color="primary" onClick={logoutHandler}>
-          Logout
-        </Button>
+      <div className={classes["profile-content"]}>
+        <div className={classes.profile}>
+          <h1>Profile</h1>
+          <div className={classes.main}>
+            <p>Email: {user && user.email}</p>
+            <Button variant="contained" color="primary" onClick={logoutHandler}>
+              Logout
+            </Button>
+          </div>
+        </div>
       </div>
     </>
   );

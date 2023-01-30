@@ -1,6 +1,6 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DataContext from "../../context/data-context";
+import { useData } from "../../context/data-context";
 import Navbar from "../../components/Navbar/Navbar";
 
 import classes from "./Result.module.css";
@@ -8,7 +8,7 @@ import classes from "./Result.module.css";
 const Result = () => {
   const navigate = useNavigate();
 
-  const { name, score } = useContext(DataContext);
+  const { name, score } = useData();
 
   useEffect(() => {
     if (!name) {

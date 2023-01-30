@@ -1,8 +1,8 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import Error from "../Error/Error";
-import DataContext from "../../context/data-context";
+import { useData } from "../../context/data-context";
 
 import classes from "./Question.module.css";
 
@@ -12,7 +12,7 @@ const Question = ({ options, currQues, setCurrQues, correct }) => {
 
   const navigate = useNavigate();
 
-  const { incrementScore, questions } = useContext(DataContext);
+  const { incrementScore, questions } = useData();
 
   const checkAnswerHandler = (option) => {
     setSelected(option);

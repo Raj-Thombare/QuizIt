@@ -1,8 +1,7 @@
-import { useContext } from "react";
-import DataContext from "../../context/data-context";
+import { useData } from "../../context/data-context";
 
 const Profile = () => {
-  const { name } = useContext(DataContext);
+  const { name } = useData();
   return <div style={{ fontSize: "18px" }}>Hi, {name}</div>;
 };
 

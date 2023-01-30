@@ -1,10 +1,10 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, MenuItem, Button } from "@mui/material";
 import Navbar from "../../components/Navbar/Navbar";
 import Error from "../../components/Error/Error";
 import Categories from "../../adapters/category";
-import DataContext from "../../context/data-context";
+import { useData } from "../../context/data-context";
 
 import classes from "./Home.module.css";
 
@@ -22,7 +22,7 @@ const Home = () => {
     resetScore,
     error,
     setError,
-  } = useContext(DataContext);
+  } = useData();
 
   const handleSubmit = () => {
     if (!name || !category || !difficulty) {

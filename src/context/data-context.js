@@ -1,4 +1,4 @@
-import { useState, createContext } from "react";
+import { useState, useContext, createContext } from "react";
 import axios from "../adapters/Axios";
 
 const DataContext = createContext();
@@ -49,4 +49,4 @@ export const DataContextProvider = ({ children }) => {
   return <DataContext.Provider value={value}>{children}</DataContext.Provider>;
 };
 
-export default DataContext;
+export const useData = () => useContext(DataContext);

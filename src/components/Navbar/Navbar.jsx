@@ -1,13 +1,12 @@
-import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { Leaderboard, Person, Home } from "@mui/icons-material";
 import { Tooltip, styled, tooltipClasses } from "@mui/material";
-import DataContext from "../../context/data-context";
+import { useData } from "../../context/data-context";
 
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
-  const { showProfile } = useContext(DataContext);
+  const { showProfile } = useData();
 
   const LightTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />

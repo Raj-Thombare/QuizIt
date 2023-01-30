@@ -3,6 +3,8 @@ import { Button } from "@mui/material";
 import { useAuth } from "../../context/auth-context";
 import Navbar from "../../components/Navbar/Navbar";
 
+import classes from "./Profile.module.css";
+
 const Profile = () => {
   const navigate = useNavigate();
 

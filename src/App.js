@@ -36,7 +36,14 @@ function App() {
                     </ProtectedRoute>
                   }
                 />
-                <Route path="/quiz" element={<Quiz />} />
+                <Route
+                  path="/quiz"
+                  element={
+                    <ProtectedRoute>
+                      <Quiz />
+                    </ProtectedRoute>
+                  }
+                />
                 <Route path="/result" element={<Result />} />
                 <Route path="*" element={<NotFound />} />
               </Routes>

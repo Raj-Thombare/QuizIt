@@ -5,6 +5,7 @@ import { AuthContextProvider } from "./context/auth-context";
 import Background from "./components/UI/Background";
 import MainWrapper from "./components/UI/MainWrapper";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
+import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
 const Home = React.lazy(() => import("./pages/Home/Home"));
 const Profile = React.lazy(() => import("./pages/Profile/Profile"));
@@ -27,7 +28,14 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/leaderboard" element={<Leaderboard />} />
-                <Route path="/profile" element={<Profile />} />
+                <Route
+                  path="/profile"
+                  element={
+                    <ProtectedRoute>
+                      <Profile />
+                    </ProtectedRoute>
+                  }
+                />
                 <Route path="/quiz" element={<Quiz />} />
                 <Route path="/result" element={<Result />} />
                 <Route path="*" element={<NotFound />} />

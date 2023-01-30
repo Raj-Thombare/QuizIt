@@ -5,15 +5,13 @@ import Navbar from "../../components/Navbar/Navbar";
 import classes from "./Result.module.css";
 
 const Result = () => {
-  const { name, score } = useData();
+  const { score } = useData();
 
   return (
     <>
       <Navbar />
       <div className={classes.result}>
-        <h2 className={classes.title}>
-          {name} Scored {score}
-        </h2>
+        <h2 className={classes.title}>Your score is {score}</h2>
       </div>
     </>
   );

@@ -14,10 +14,11 @@ const Home = () => {
 
   const navigate = useNavigate();
 
-  const { fetchQuestions, setScore, error, setError } = useData();
+  const { fetchQuestions, setScore, error, setError, name, setName } =
+    useData();
 
   const handleSubmit = () => {
-    if (!category || !difficulty) {
+    if (!name || !category || !difficulty) {
       setError(true);
     } else {
       setError(false);
@@ -35,6 +36,12 @@ const Home = () => {
           <h1>Welcome to QuizIt</h1>
           {error && <Error>Please fill all the fields!</Error>}
           <div className={classes.settings__select}>
+            <TextField
+              label="Enter your name"
+              variant="outlined"
+              style={{ marginBottom: 25 }}
+              onChange={(e) => setName(e.target.value)}
+            />
             <TextField
               select
               label="Select Category"

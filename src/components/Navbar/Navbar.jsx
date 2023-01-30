@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import { Leaderboard, Person, Home } from "@mui/icons-material";
 import { Tooltip, styled, tooltipClasses } from "@mui/material";
-import { useData } from "../../context/data-context";
+import { useAuth } from "../../context/auth-context";
 
 import classes from "./Navbar.module.css";
 
 const Navbar = () => {
-  const { showProfile } = useData();
+  const { user } = useAuth();
 
   const LightTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -26,44 +26,38 @@ const Navbar = () => {
       </Link>
       <nav>
         <ul>
-          {!showProfile && (
-            <>
-              <li>
+          <li>
+            <LightTooltip title="Home">
+              <Link to="/">
+                <Home fontSize="large" />
+              </Link>
+            </LightTooltip>
+          </li>
+          <li>
+            <LightTooltip title="Leaderboard">
+              <Link to="/leaderboard">
+                <Leaderboard fontSize="large" />
+              </Link>
+            </LightTooltip>
+          </li>
+          {user && (
+            <li>
+              <LightTooltip title="Profile">
+                <Link to="/profile">
+                  <Person fontSize="large" />
+                </Link>
+              </LightTooltip>
+            </li>
+          )}
+
+          {!user && (
+            <li>
+              <LightTooltip title="Login">
                 <Link to="/login" className={classes["nav-button"]}>
                   Login
                 </Link>
-              </li>
-              <li>
-                <Link to="/signup" className={classes["nav-button"]}>
-                  Sign Up
-                </Link>
-              </li>
-            </>
-          )}
-          {showProfile && (
-            <>
-              <li>
-                <LightTooltip title="Home">
-                  <Link to="/">
-                    <Home fontSize="large" />
-                  </Link>
-                </LightTooltip>
-              </li>
-              <li>
-                <LightTooltip title="Leaderboard">
-                  <Link to="/leaderboard">
-                    <Leaderboard fontSize="large" />
-                  </Link>
-                </LightTooltip>
-              </li>
-              <li>
-                <LightTooltip title="Profile">
-                  <Link to="/profile">
-                    <Person fontSize="large" />
-                  </Link>
-                </LightTooltip>
-              </li>
-            </>
+              </LightTooltip>
+            </li>
           )}
         </ul>
       </nav>

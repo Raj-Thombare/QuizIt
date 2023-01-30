@@ -44,7 +44,14 @@ function App() {
                     </ProtectedRoute>
                   }
                 />
-                <Route path="/result" element={<Result />} />
+                <Route
+                  path="/result"
+                  element={
+                    <ProtectedRoute>
+                      <Result />
+                    </ProtectedRoute>
+                  }
+                />
                 <Route path="*" element={<NotFound />} />
               </Routes>
             </AuthContextProvider>

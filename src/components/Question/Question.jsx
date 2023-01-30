@@ -12,12 +12,12 @@ const Question = ({ options, currQues, setCurrQues, correct }) => {
 
   const navigate = useNavigate();
 
-  const { incrementScore, questions } = useData();
+  const { score, setScore, questions } = useData();
 
   const checkAnswerHandler = (option) => {
     setSelected(option);
     if (option === correct) {
-      incrementScore();
+      setScore(score + 1);
     }
     setError(false);
   };

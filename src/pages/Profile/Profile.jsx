@@ -13,7 +13,7 @@ const Profile = () => {
   const logoutHandler = async () => {
     try {
       await logout();
-      navigate("/login");
+      navigate("/");
     } catch (error) {
       console.log(error.message);
     }

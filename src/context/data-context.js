@@ -4,6 +4,7 @@ import axios from "../adapters/Axios";
 const DataContext = createContext();
 
 export const DataContextProvider = ({ children }) => {
+  const [name, setName] = useState("");
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
   const [error, setError] = useState(false);
@@ -24,6 +25,8 @@ export const DataContextProvider = ({ children }) => {
   return (
     <DataContext.Provider
       value={{
+        name,
+        setName,
         questions,
         score,
         setScore,

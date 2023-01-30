@@ -20,7 +20,7 @@ const Login = () => {
     setError("");
     try {
       await login(email, password);
-      navigate("/profile");
+      navigate("/quiz");
     } catch (error) {
       setError(error.message);
     }

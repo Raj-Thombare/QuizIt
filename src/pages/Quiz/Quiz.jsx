@@ -31,7 +31,7 @@ const Quiz = () => {
   } else {
     content = (
       <>
-        <span className={classes.subtitle}>Welcome, {name}</span>;
+        <span className={classes.subtitle}>Welcome, {name}</span>
         {questions ? (
           <>
             <div className={classes.quizInfo}>

@@ -1,8 +1,34 @@
-import { useData } from "../../context/data-context";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
+import { useAuth } from "../../context/auth-context";
+import Navbar from "../../components/Navbar/Navbar";
 
 const Profile = () => {
-  const { username } = useData();
-  return <div style={{ fontSize: "18px" }}>Hi, {username}</div>;
+  const navigate = useNavigate();
+
+  const { user, logout } = useAuth();
+
+  const logoutHandler = async () => {
+    try {
+      await logout();
+      navigate("/login");
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  return (
+    <>
+      <Navbar />
+      <div>
+        <h1>Account</h1>
+        <p>User Email: {user && user.email}</p>
+        <Button variant="contained" color="primary" onClick={logoutHandler}>
+          Logout
+        </Button>
+      </div>
+    </>
+  );
 };
 
 export default Profile;

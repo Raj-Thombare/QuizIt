@@ -10,17 +10,16 @@ import classes from "./Auth.module.css";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
 
   const navigate = useNavigate();
 
-  const { username, setUsername, signupUserHandler } = useAuth();
+  const { username, setUsername, signup, error, setError } = useAuth();
 
-  const submitHandler = async (e) => {
+  const signupHandler = async (e) => {
     e.preventDefault();
     setError("");
     try {
-      await signupUserHandler(email, password);
+      await signup(email, password);
       navigate("/profile");
     } catch (error) {
       setError(error.message);
@@ -34,7 +33,7 @@ const Signup = () => {
     <>
       <Navbar />
       <div className={classes.content}>
-        <form className={classes.form} onSubmit={submitHandler}>
+        <form className={classes.form} onSubmit={signupHandler}>
           <h1>Create Account</h1>
           {error && <Error>{error}</Error>}
           <div className={classes.textFields}>

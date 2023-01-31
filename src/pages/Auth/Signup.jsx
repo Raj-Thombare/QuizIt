@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
 import { useAuth } from "../../context/auth-context";
+import { useData } from "../../context/data-context";
 import Navbar from "../../components/Navbar/Navbar";
 import Error from "../../components/Error/Error";
 
@@ -14,13 +15,18 @@ const Signup = () => {
   const navigate = useNavigate();
 
   const { username, setUsername, signup, error, setError } = useAuth();
+  const { name } = useData();
 
   const signupHandler = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await signup(email, password);
-      navigate("/quiz");
+      if (name) {
+        navigate("/quiz");
+      } else {
+        navigate("/");
+      }
     } catch (error) {
       setError(error.message);
     }

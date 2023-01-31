@@ -11,14 +11,12 @@ const Profile = () => {
   const { user, logout } = useAuth();
 
   const logoutHandler = async () => {
-    try {
-      await logout();
-      navigate("/");
-    } catch (error) {
-      console.log(error.message);
-    }
+    await logout();
+    navigate("/");
   };
 
+  const { email = "" } = user;
+  console.log(email);
   return (
     <>
       <Navbar />
@@ -26,7 +24,8 @@ const Profile = () => {
         <div className={classes.profile}>
           <h1>Profile</h1>
           <div className={classes.main}>
-            <p>Email: {user && user.email}</p>
+            <p>Username: {user && email.slice(0, email.indexOf("@"))}</p>
+            <p>Email: {user && email}</p>
             <Button variant="contained" color="primary" onClick={logoutHandler}>
               Logout
             </Button>

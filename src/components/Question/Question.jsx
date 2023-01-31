@@ -78,7 +78,6 @@ const Question = ({ options, currQues, setCurrQues, correct }) => {
           size="large"
           style={{ width: 185 }}
           onClick={quitHandler}
-          href="/"
         >
           Quit
         </Button>

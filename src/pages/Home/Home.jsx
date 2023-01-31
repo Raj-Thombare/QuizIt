@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, MenuItem, Button } from "@mui/material";
-import Navbar from "../../components/Navbar/Navbar";
 import Error from "../../components/Error/Error";
 import Categories from "../../adapters/category";
 import { useData } from "../../context/data-context";
@@ -29,58 +28,55 @@ const Home = () => {
   };
 
   return (
-    <>
-      <Navbar />
-      <div className={classes.content}>
-        <div className={classes.settings}>
-          <h1>Welcome to QuizIt</h1>
-          {error && <Error>Please fill all the fields!</Error>}
-          <div className={classes.settings__select}>
-            <TextField
-              label="Enter your name"
-              variant="outlined"
-              style={{ marginBottom: 25 }}
-              onChange={(e) => setName(e.target.value)}
-            />
-            <TextField
-              select
-              label="Select Category"
-              value={category}
-              varient="outlined"
-              style={{ marginBottom: 30 }}
-              onChange={(e) => setCategory(e.target.value)}
-            >
-              {Categories.map((option) => (
-                <MenuItem key={option.category} value={option.value}>
-                  {option.category}
-                </MenuItem>
-              ))}
-            </TextField>
-            <TextField
-              select
-              label="Select Difficulty"
-              value={difficulty}
-              varient="outlined"
-              style={{ marginBottom: 30 }}
-              onChange={(e) => setDifficulty(e.target.value)}
-            >
-              <MenuItem key="easy" value="easy">
-                Easy
+    <div className={classes.content}>
+      <div className={classes.settings}>
+        <h1>Welcome to QuizIt</h1>
+        {error && <Error>Please fill all the fields!</Error>}
+        <div className={classes.settings__select}>
+          <TextField
+            label="Enter your name"
+            variant="outlined"
+            style={{ marginBottom: 25 }}
+            onChange={(e) => setName(e.target.value)}
+          />
+          <TextField
+            select
+            label="Select Category"
+            value={category}
+            varient="outlined"
+            style={{ marginBottom: 30 }}
+            onChange={(e) => setCategory(e.target.value)}
+          >
+            {Categories.map((option) => (
+              <MenuItem key={option.category} value={option.value}>
+                {option.category}
               </MenuItem>
-              <MenuItem key="medium" value="medium">
-                Medium
-              </MenuItem>
-              <MenuItem key="hard" value="hard">
-                Hard
-              </MenuItem>
-            </TextField>
-            <Button variant="contained" color="primary" onClick={handleSubmit}>
-              Start Quiz
-            </Button>
-          </div>
+            ))}
+          </TextField>
+          <TextField
+            select
+            label="Select Difficulty"
+            value={difficulty}
+            varient="outlined"
+            style={{ marginBottom: 30 }}
+            onChange={(e) => setDifficulty(e.target.value)}
+          >
+            <MenuItem key="easy" value="easy">
+              Easy
+            </MenuItem>
+            <MenuItem key="medium" value="medium">
+              Medium
+            </MenuItem>
+            <MenuItem key="hard" value="hard">
+              Hard
+            </MenuItem>
+          </TextField>
+          <Button variant="contained" color="primary" onClick={handleSubmit}>
+            Start Quiz
+          </Button>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

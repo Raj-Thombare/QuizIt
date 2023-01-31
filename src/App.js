@@ -4,6 +4,7 @@ import { DataContextProvider } from "./context/data-context";
 import { AuthContextProvider } from "./context/auth-context";
 import Background from "./components/UI/Background";
 import MainWrapper from "./components/UI/MainWrapper";
+import Navbar from "./components/Navbar/Navbar";
 import LoadingSpinner from "./components/UI/LoadingSpinner";
 import ProtectedRoute from "./components/ProtectedRoute/ProtectedRoute";
 
@@ -23,6 +24,7 @@ function App() {
         <Suspense fallback={<LoadingSpinner />}>
           <DataContextProvider>
             <AuthContextProvider>
+              <Navbar />
               <Routes>
                 <Route path="/" element={<Home />} />
                 <Route path="/login" element={<Login />} />

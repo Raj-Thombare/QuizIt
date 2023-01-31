@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { TextField, MenuItem, Button } from "@mui/material";
 import Error from "../../components/Error/Error";
@@ -8,13 +8,20 @@ import { useData } from "../../context/data-context";
 import classes from "./Home.module.css";
 
 const Home = () => {
-  const [category, setCategory] = useState("");
-  const [difficulty, setDifficulty] = useState("");
-
   const navigate = useNavigate();
 
-  const { fetchQuestions, setScore, error, setError, name, setName } =
-    useData();
+  const {
+    fetchQuestions,
+    setScore,
+    error,
+    setError,
+    name,
+    setName,
+    difficulty,
+    setDifficulty,
+    category,
+    setCategory,
+  } = useData();
 
   const handleSubmit = () => {
     if (!name || !category || !difficulty) {
@@ -25,7 +32,16 @@ const Home = () => {
       navigate("/quiz");
       setScore(0);
     }
+    setName("");
+    setCategory("");
+    setDifficulty("");
   };
+
+  useEffect(() => {
+    localStorage.setItem("name", JSON.stringify(name));
+    localStorage.setItem("category", JSON.stringify(category));
+    localStorage.setItem("difficulty", JSON.stringify(difficulty));
+  }, [name, category, difficulty]);
 
   return (
     <div className={classes.content}>
@@ -41,8 +57,8 @@ const Home = () => {
           />
           <TextField
             select
-            label="Select Category"
             value={category}
+            label="Select Category"
             varient="outlined"
             style={{ marginBottom: 30 }}
             onChange={(e) => setCategory(e.target.value)}
@@ -55,8 +71,8 @@ const Home = () => {
           </TextField>
           <TextField
             select
-            label="Select Difficulty"
             value={difficulty}
+            label="Select Difficulty"
             varient="outlined"
             style={{ marginBottom: 30 }}
             onChange={(e) => setDifficulty(e.target.value)}

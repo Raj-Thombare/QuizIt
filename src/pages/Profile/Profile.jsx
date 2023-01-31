@@ -10,6 +10,10 @@ const Profile = () => {
   const { user, logout } = useAuth();
 
   const logoutHandler = async () => {
+    localStorage.removeItem("name");
+    localStorage.removeItem("category");
+    localStorage.removeItem("difficulty");
+    localStorage.removeItem("questions");
     await logout();
     navigate("/");
   };

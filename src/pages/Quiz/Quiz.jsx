@@ -10,19 +10,19 @@ const Quiz = () => {
 
   const { name, questions, error } = useData();
 
-  useEffect(() => {
-    setOptions(
-      questions &&
-        handleShuffle([
-          questions[currQues]?.correctAnswer,
-          ...questions[currQues]?.incorrectAnswers,
-        ])
-    );
-  }, [questions, currQues]);
+   const handleShuffle = (options) => {
+     return options.sort(() => Math.random() - 0.5);
+   };
 
-  const handleShuffle = (options) => {
-    return options.sort(() => Math.random() - 0.5);
-  };
+   useEffect(() => {
+     setOptions(
+       questions &&
+         handleShuffle([
+           questions[currQues]?.correctAnswer,
+           ...questions[currQues]?.incorrectAnswers,
+         ])
+     );
+   }, [questions, currQues]);
 
   let content;
 

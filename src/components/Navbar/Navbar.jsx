@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Leaderboard, Person, Home } from "@mui/icons-material";
 import { Tooltip, styled, tooltipClasses } from "@mui/material";
 import { useAuth } from "../../context/auth-context";
@@ -7,6 +7,8 @@ import classes from "./Navbar.module.css";
 
 const Navbar = () => {
   const { user } = useAuth();
+
+  const { pathname } = useLocation();
 
   const LightTooltip = styled(({ className, ...props }) => (
     <Tooltip {...props} classes={{ popper: className }} />
@@ -52,9 +54,12 @@ const Navbar = () => {
 
           {!user && (
             <li>
-              <LightTooltip title="Login">
-                <Link to="/login" className={classes["nav-button"]}>
-                  Login
+              <LightTooltip title={pathname === "/login" ? "Sign Up" : "Login"}>
+                <Link
+                  to={pathname === "/login" ? "/signup" : "/login"}
+                  className={classes["nav-button"]}
+                >
+                  {pathname === "/login" ? "Sign Up" : "Login"}
                 </Link>
               </LightTooltip>
             </li>

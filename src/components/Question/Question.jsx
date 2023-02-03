@@ -23,11 +23,7 @@ const Question = ({ options, currQues, setCurrQues, correct }) => {
   };
 
   const selectHandler = (option) => {
-    if (selected === option && selected === correct)
-      return `${classes.correct}`;
-    else if (selected === option && selected !== correct)
-      return `${classes.wrong}`;
-    else if (option === correct) return `${classes.correct}`;
+    if (selected === option) return `${classes.select}`;
   };
 
   const nextQuestionHandler = () => {

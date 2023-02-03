@@ -14,14 +14,14 @@ const Login = () => {
   const navigate = useNavigate();
 
   const { login, error, setError } = useAuth();
-  const { name, category, difficulty } = useData();
+  const { questions } = useData();
 
   const loginHandler = async (e) => {
     e.preventDefault();
     setError("");
     try {
       await login(email, password);
-      if (name && category && difficulty) {
+      if (questions) {
         navigate("/quiz");
       } else {
         navigate("/");

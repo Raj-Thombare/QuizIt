@@ -1,7 +1,5 @@
-import React from "react";
-
 const Leaderboard = () => {
-  return <div style={{ fontSize: "18px" }}>Leaderboard</div>;
+  return <div style={{ fontSize: "18px" }}></div>;
 };
 
 export default Leaderboard;

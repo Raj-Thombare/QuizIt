@@ -11,8 +11,8 @@ export const DataContextProvider = ({ children }) => {
   const [score, setScore] = useState(0);
   const [error, setError] = useState(false);
 
+
   const fetchQuestions = async (category, difficulty) => {
-    console.log(category, difficulty);
     try {
       const questionsData = await axios.get(
         `?${category && `categories=${category}`}&limit=10&region=IN&${

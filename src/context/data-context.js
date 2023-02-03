@@ -21,6 +21,7 @@ export const DataContextProvider = ({ children }) => {
       );
       setQuestions(questionsData.data);
       localStorage.setItem("questions", JSON.stringify(questionsData.data));
+      localStorage.setItem("score", JSON.stringify(score));
     } catch (error) {
       setError(error.message);
     }
@@ -29,8 +30,10 @@ export const DataContextProvider = ({ children }) => {
   useEffect(() => {
     const localName = JSON.parse(localStorage.getItem("name"));
     const data = JSON.parse(localStorage.getItem("questions"));
+    const score = JSON.parse(localStorage.getItem("score"));
     setName(localName);
     setQuestions(data);
+    setScore(score);
   }, [name]);
 
   return (

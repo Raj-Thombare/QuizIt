@@ -9,6 +9,18 @@ const Result = () => {
   return (
     <div className={classes.result}>
       <h2 className={classes.title}>Your score is {score}</h2>
+      {/* {questions.map((curr) => {
+        return (
+          <div>
+            <p>{curr.question}</p>
+            <ul>
+              {curr.incorrectAnswers.map((option) => {
+                return <li>{option}</li>;
+              })}
+            </ul>
+          </div>
+        );
+      })} */}
     </div>
   );
 };

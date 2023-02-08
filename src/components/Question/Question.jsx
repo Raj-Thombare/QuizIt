@@ -7,35 +7,40 @@ import { useData } from "../../context/data-context";
 import classes from "./Question.module.css";
 
 const Question = ({ options, currQues, setCurrQues, correct }) => {
-  const [selected, setSelected] = useState();
-  const [error, setError] = useState(false);
 
-  const navigate = useNavigate();
+    const [selected, setSelected] = useState();
+    const [error, setError] = useState(false);
 
-  const { score, setScore, questions } = useData();
+    const navigate = useNavigate();
 
-  const checkAnswerHandler = (option) => {
-    setSelected(option);
-    if (option === correct) {
-      setScore(score + 1);
-    }
-    setError(false);
-  };
+    const { score, setScore, questions } = useData();
 
-  const selectHandler = (option) => {
-    if (selected === option) return `${classes.select}`;
-  };
+    const checkAnswerHandler = (option) => {
+      setSelected(option);
+      if (option === correct) {
+        setScore(score + 1);
+      }
+      setError(false);
+    };
 
-  const nextQuestionHandler = () => {
-    if (currQues > 8) {
-      navigate("/result");
-    } else if (selected) {
-      setSelected();
-      setCurrQues(currQues + 1);
-    } else {
-      setError("Please select an option!");
-    }
-  };
+    const selectHandler = (option) => {
+      if (selected === option && selected === correct)
+        return `${classes.correct}`;
+      else if (selected === option && selected !== correct)
+        return `${classes.wrong}`;
+      else if (option === correct) return `${classes.correct}`;
+    };
+
+    const nextQuestionHandler = () => {
+      if (currQues > 8) {
+        navigate("/result");
+      } else if (selected) {
+        setSelected();
+        setCurrQues(currQues + 1);
+      } else {
+        setError("Please select an option!");
+      }
+    };
 
   const quitHandler = () => {
     navigate("/");

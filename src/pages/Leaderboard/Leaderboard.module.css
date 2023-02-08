@@ -1,0 +1,35 @@
+.leaderboard {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    margin: 2rem auto 0;
+}
+
+table, th, td {
+  border: 2px solid white;
+}
+
+table {
+    border-collapse: collapse;
+    background: rgb(204 218 243 / 59%);
+    backdrop-filter: saturate(180%) blur(10px);
+}
+
+.table-heading {
+    background: white;
+    color: black;
+}
+
+tr td, th {
+    padding: 10px;
+}
+
+tr th {
+    font-weight: 500;
+    font-size: 1.2rem;
+}
+
+tr td {
+    font-weight: 400;
+    font-size: 1.2rem;
+}

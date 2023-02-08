@@ -1,28 +1,13 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { CircularProgress } from "@mui/material";
 import Question from "../../components/Question/Question";
 import { useData } from "../../context/data-context";
 import classes from "./Quiz.module.css";
 
 const Quiz = () => {
-  const [options, setOptions] = useState([]);
   const [currQues, setCurrQues] = useState(0);
 
   const { name, questions, error } = useData();
-
-   const handleShuffle = (options) => {
-     return options.sort(() => Math.random() - 0.5);
-   };
-
-   useEffect(() => {
-     setOptions(
-       questions &&
-         handleShuffle([
-           questions[currQues]?.correctAnswer,
-           ...questions[currQues]?.incorrectAnswers,
-         ])
-     );
-   }, [questions, currQues]);
 
   let content;
 
@@ -34,10 +19,10 @@ const Quiz = () => {
         <span className={classes.subtitle}>Welcome, {name}</span>
         {questions ? (
           <Question
-            options={options}
+            options={questions[currQues]?.options}
             currQues={currQues}
             setCurrQues={setCurrQues}
-            correct={questions[currQues]?.correctAnswer}
+            correct={questions[currQues]?.answer}
           />
         ) : (
           <CircularProgress

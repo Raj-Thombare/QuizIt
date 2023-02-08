@@ -33,8 +33,6 @@ const Home = () => {
       setScore(0);
     }
     setName("");
-    setCategory("");
-    setDifficulty("");
     setError(false);
   };
 

@@ -6,6 +6,7 @@
     width: 100%;
     text-align: center;
     padding: 0 10rem;
+    overflow: scroll;
 }
 
 @media (max-width: 860px) {

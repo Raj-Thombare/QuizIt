@@ -9,8 +9,8 @@ export const DataContextProvider = ({ children }) => {
   const [difficulty, setDifficulty] = useState("");
   const [questions, setQuestions] = useState();
   const [score, setScore] = useState(0);
-  const [error, setError] = useState(false);
 
+  const [error, setError] = useState(false);
 
   const fetchQuestions = async (category, difficulty) => {
     try {
@@ -19,9 +19,24 @@ export const DataContextProvider = ({ children }) => {
           difficulty && `difficulty=${difficulty}`
         }`
       );
-      setQuestions(questionsData.data);
-      localStorage.setItem("questions", JSON.stringify(questionsData.data));
-      localStorage.setItem("score", JSON.stringify(score));
+
+      const data = questionsData.data.map((question) => {
+        const handleShuffle = (options) => {
+          return options.sort(() => Math.random() - 0.5);
+        };
+        return {
+          id: question.id,
+          question: question.question,
+          answer: question.correctAnswer,
+          options: handleShuffle([
+            ...question.incorrectAnswers,
+            question.correctAnswer,
+          ]),
+        };
+      });
+
+      setQuestions(data);
+      localStorage.setItem("questions", JSON.stringify(data));
     } catch (error) {
       setError(error.message);
     }
@@ -30,10 +45,8 @@ export const DataContextProvider = ({ children }) => {
   useEffect(() => {
     const localName = JSON.parse(localStorage.getItem("name"));
     const data = JSON.parse(localStorage.getItem("questions"));
-    const score = JSON.parse(localStorage.getItem("score"));
     setName(localName);
     setQuestions(data);
-    setScore(score);
   }, [name]);
 
   return (
